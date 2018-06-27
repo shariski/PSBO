@@ -1,0 +1,59 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>		
+</ion-header>
+
+<ion-content padding>
+<!--height="300"-->
+		<ion-item>
+	    <img src="assets/imgs/contoh.png" style='height: 25vw; width: 25vw; display: block; margin: auto;'/>
+		</ion-item>
+
+<form (submit)="login()" novalidate>
+		<ion-list >
+			<ion-item>
+      <ion-label floating>email</ion-label>
+      <ion-input type="email" [(ngModel)]="loginData.email" name="email"></ion-input>
+    </ion-item>
+			
+		<ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [(ngModel)]="loginData.password" name="password" type="password" #pass="ngModel" required></ion-input>
+    </ion-item>
+		</ion-list>
+
+		<ion-row responsive-sm>
+			<ion-col>
+				<button ion-button block type="submit">Login</button>
+			</ion-col>
+		</ion-row>
+
+<!--		
+		<div text-center>
+			<button ion-button medium>
+				Click Here
+			</button>
+		</div>
+				-->
+
+		<ion-grid>
+			<ion-row>
+				<ion-col text-center><a><font color="black">Tidak punya akun? Buat Akun sebagai</font><a (click)="signUpPetani()"> Petani</a><font color="black"> atau</font><a (click)="signUpLahan()"> Pemilik Lahan.</a></a></ion-col>
+			</ion-row>
+			<!--<ion-row>
+				<ion-col text-center><a><font color="black"></font><a (click)="lupaPassword()">Lupa password.</a></a></ion-col>
+			</ion-row>-->
+		</ion-grid>
+
+	</form>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<!--
+  Generated template for the FormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Jenis Tanaman</ion-label>
+        <ion-select [(ngModel)]="spesialisasi" name="Spesialisasi">
+          <ion-option value="padi">Padi</ion-option>
+          <ion-option value="tomat">Tomat</ion-option>
+          <ion-option value="jagung">Jagung</ion-option>
+          <ion-option value="cabe">Cabe</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Kota/Kabupaten</ion-label>
+        <ion-select [(ngModel)]="lokasi" name="Lokasi">
+          <ion-option value="bandung">Bandung</ion-option>
+          <ion-option value="bogor">Bogor</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Luas Lahan</ion-label>
+        <ion-input [(ngModel)]="luas" type="number" name="Luas"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-row responsive-sm>
+      <ion-col text-center>
+        <button ion-button round type="submit" (click)="cari()">Cari</button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
