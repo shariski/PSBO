@@ -5,7 +5,7 @@ import { TabsPetaniPage } from '../tabs-petani/tabs-petani';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { RegisterPage } from '../register/register';
 import { RegisterLahanPage } from '../register-lahan/register-lahan';
-
+import { AdminPage } from '../admin/admin';
 /**
  * Generated class for the LoginPage page.
  *
@@ -94,5 +94,9 @@ export class LoginPage {
 
   signUpLahan(){
     this.navCtrl.push(RegisterLahanPage);
+  }
+
+  masukAdmin(){
+    this.navCtrl.setRoot(AdminPage);
   }
 }

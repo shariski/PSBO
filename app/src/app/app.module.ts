@@ -22,6 +22,7 @@ import { TabsPetaniPage } from '../pages/tabs-petani/tabs-petani';
 import { FormPage } from '../pages/form/form';
 import { ListPage } from '../pages/list/list';
 import { RegisterLahanPage } from '../pages/register-lahan/register-lahan';
+import { AdminPage } from '../pages/admin/admin';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,7 +49,8 @@ import { PesananPageModule } from '../pages/pesanan/pesanan.module';
     RegisterLahanPage,
     LaporanPetaniPage,
     PesananPetaniPage,
-    ProfilePetaniPage
+    ProfilePetaniPage,
+    AdminPage
   ],
   imports: [
     BrowserModule,HttpModule,HttpClientModule,
@@ -74,7 +76,8 @@ import { PesananPageModule } from '../pages/pesanan/pesanan.module';
     RegisterLahanPage,
     LaporanPetaniPage,
     PesananPetaniPage,
-    ProfilePetaniPage
+    ProfilePetaniPage,
+    AdminPage
   ],
   providers: [
     StatusBar,
