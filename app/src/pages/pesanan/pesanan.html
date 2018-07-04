@@ -14,11 +14,21 @@
 
 
 <ion-content padding>
-<ion-list>
-  <ion-item>
-    <h2>Pemesan</h2>
-    <p>Hayao Miyazaki</p>
-    <button ion-button clear item-end (click)="openViewPage()">View</button>
-  </ion-item>
-</ion-list>
+<!-- <ion-list>
+  <ion-item> -->
+    <!-- <li *ngFor="let order of orders"> -->
+      <ion-card *ngFor="let order of orders" (click)=openViewPage(order)>
+        <ion-card-header>
+          {{order.userIdPetani.spesialisasi}}
+        </ion-card-header>
+        <ion-card-content>
+          <p>Nama Petani: {{order.userIdPetani.name}}</p>
+          <p>Status: {{order.status}}</p>
+          <p>Tanggal Dibuat: {{order.tanggal_dibuat[0]}}</p>
+        </ion-card-content>
+      </ion-card>
+    <!-- </li> -->
+    <!-- <button ion-button clear item-end (click)="openViewPage()">View</button> -->
+  <!-- </ion-item>
+</ion-list> -->
 </ion-content>

@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 var mongo = require('mongodb');
 
 // const productRoutes = require('./api/routes/products');
-// const orderRoutes = require('./api/routes/orders');
+const orderRoutes = require('./api/routes/orders');
 const userRoutes = require('./api/routes/users');
 
 mongoose.connect('mongodb://localhost/agri');
@@ -20,9 +20,8 @@ app.use(bodyParser.json());
 
 // Routes which should handle requests
 // app.use('/products', productRoutes); //Middleware
-// app.use('/orders', orderRoutes); //Middleware
+app.use('/orders', orderRoutes); //Middleware
 app.use('/users', userRoutes); //Middleware
-
 
 app.use((req, res, next) => {
     const error = new Error('Not found');

@@ -2,39 +2,37 @@ const mongoose = require('mongoose');
 
 const OrderSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+
+    tanggal_dibuat : {
+        type: Date
     },
 
-    // butuh diliat enaknya pake types object atau increment number aja
-    category_id: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Category', 
-        required: true 
+    tanggal : {
+        type: Date
     },
-    
-    date: { 
-        type: Date 
-    },
-    
-    description: {
+
+    lokasi: {
         type: String
     },
 
-    address: {
+    luas: {
         type: String
     },
 
-    user_phone_number: {
-        type: String,
-        min: 11,
-        max: 12
-    },
-
-    budget: {
+    harga: {
         type: Number
+    },
+
+    status: {
+        type: String
+    },
+
+    userId: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true
+      },
+
+    userIdPetani: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true
     }
 
 });

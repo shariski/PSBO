@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http'
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 
-
 import { FirstPage } from '../pages/first/first';
 import { HomePage } from '../pages/home/home';
 import { LaporanPage } from '../pages/laporan/laporan';
@@ -28,6 +27,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { SearchServiceProvider } from '../providers/search-service/search-service';
+import { OrderProvider } from '../providers/order/order';
+import { PesananPageModule } from '../pages/pesanan/pesanan.module';
 
 @NgModule({
   declarations: [
@@ -36,13 +37,13 @@ import { SearchServiceProvider } from '../providers/search-service/search-servic
     HomePage,
     LaporanPage,
     LoginPage,
-    PesananPage,
     ProfilePage,
     SlidesPage,
     TabsPage,
     TabsPetaniPage,
     FormPage,
     ListPage,
+    // PesananPage,
     RegisterPage,
     RegisterLahanPage,
     LaporanPetaniPage,
@@ -52,7 +53,8 @@ import { SearchServiceProvider } from '../providers/search-service/search-servic
   imports: [
     BrowserModule,HttpModule,HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    PesananPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,12 +63,12 @@ import { SearchServiceProvider } from '../providers/search-service/search-servic
     HomePage,
     LaporanPage,
     LoginPage,
-    PesananPage,
     ProfilePage,
     SlidesPage,
     TabsPage,
     TabsPetaniPage,
     FormPage,
+    PesananPage,
     ListPage,
     RegisterPage,
     RegisterLahanPage,
@@ -79,7 +81,8 @@ import { SearchServiceProvider } from '../providers/search-service/search-servic
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
-    SearchServiceProvider
+    SearchServiceProvider,
+    OrderProvider
   ]
 })
 export class AppModule {}

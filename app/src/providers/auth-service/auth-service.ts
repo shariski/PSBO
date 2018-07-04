@@ -13,6 +13,7 @@ export class AuthServiceProvider {
   token:any;
   tes:any;
   userId:any;
+  hasLoggedIn: boolean=false;
   
   constructor(
     public http: Http,
@@ -24,21 +25,49 @@ export class AuthServiceProvider {
         headers.append('Content-Type', 'application/json');
         this.http.post(apiUrl+'/users/login', JSON.stringify(credentials), {headers: headers})
           .subscribe(res => {
-            resolve(res.json());  
+            resolve(res.json()); 
             this.data = res.json();
+            this.LoggedIn();
+            // this.userData();
             console.log("respon",this.data);
             this.message = this.data.message;
             this.token = this.data.token;
             this.storage.set("token",this.token);
             this.userId = this.data.userId;
-            console.log("role",this.data.role);
-            // console.log("token",this.token);
-            // localStorage.setItem('token', this.data.token);
-            // this.tes = localStorage.getItem('token');
-            // console.log("isi storage",this.tes);
            }, (err) => {
             reject(err);
           });
+    });
+  }
+
+  LoggedIn(){
+    this.hasLoggedIn=true;
+    return this.hasLoggedIn;
+  }
+
+  // userData(){
+  //   if(this.LoggedIn){
+  //     return this.data;
+  //   }
+  //   else{
+  //     return "error";
+  //   }
+  // }
+
+  getData()
+  {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      console.log('Token', this.token);
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization','Bearer '+ this.token);
+      console.log("header auth", headers);
+      this.http.get(apiUrl+'/users', {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
     });
   }
 
@@ -57,18 +86,8 @@ export class AuthServiceProvider {
     });
   }
 
-  logout(){
-    return new Promise((resolve, reject) => {
-        let headers = new Headers();
-        headers.append('X-Auth-Token', localStorage.getItem('token'));
-
-        this.http.post(apiUrl+'logout', {}, {headers: headers})
-          .subscribe(res => {
-            localStorage.clear();
-          }, (err) => {
-            reject(err);
-          });
-    });
+  logout() {
+    localStorage.removeItem('token');
+    this.storage.clear();
   }
-
 }

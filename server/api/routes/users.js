@@ -105,20 +105,23 @@ router.post("/login", (req, res, next) => {
         });
 });
 
-router.get('/:userId', (req, res, next) => {
-    User.findById(req.params.userId)
-        .exec()
-        .then(doc => {
-            console.log(doc);
-            res.status(200).json(doc);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                error: err
+router.get('/', checkAuth, (req, res, next) => {
+    const token = req.headers.authorization.split(" ")[1];
+    const decode = jwt.verify(token, "rahasia");
+    const userId = decode.userId;
+      User.find({_id : userId})
+            .exec()
+            .then(user => {
+                console.log(user);
+                res.status(200).json(user);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({
+                    error: err
+                });
             });
-        });
-});
+  });
 
 // router.get('/login', function(req, res, next) {
 
@@ -149,7 +152,7 @@ router.delete('/:userId', (req, res, next) => {
 });
 
 router.post("/search", (req, res, next) => {
-    User.find({ role: req.body.role, spesialisasi: req.body.spesialisasi })
+    User.find({ role: req.body.role, spesialisasi: req.body.spesialisasi, address: req.body.lokasi })
         .exec()
         .then(user => {
             if(user.length > 0) {

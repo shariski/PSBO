@@ -14,40 +14,23 @@
 
 
 <ion-content padding>
-  <ul>
-    <li *ngFor="let data of result">
-      <ion-card>
+      <ion-card *ngFor="let data of datas">
 
         <img src="assets/imgs/padi.png">
-        <ion-fab right top>
-          <button ion-fab>
-            <ion-icon name="pin"></ion-icon>
+        <ion-item>
+          <h2>{{ data.name }}</h2>
+          <p>{{data.address}}</p>
+        </ion-item>
+      
+        <ion-item>
+          <h2>Rp{{data.harga*dataOrder.luas}}</h2>
+          <p>Rp{{data.harga}}/m2</p>
+        </ion-item>
+      
+          <button ion-button color="secondary" block (click)=pesan(data)>
+            Pesan
           </button>
-        </ion-fab>
-      
-        <ion-item>
-          <ion-icon name="" item-start large></ion-icon>
-          <h2>{{ data.nama }}</h2>
-          <!-- <p>11 N. Way St, Madison, WI 53703</p> -->
-        </ion-item>
-      
-        <ion-item>
-          <ion-icon name="wine" item-start large ></ion-icon>
-          <h2>{{data.harga}}</h2>
-          <!-- <p>14 S. Hop Avenue, Madison, WI 53703</p> -->
-        </ion-item>
-      
-        <ion-item>
-          <span item-start>18 min</span>
-          <span item-start>(2.6 mi)</span>
-          <button ion-button icon-start clear item-end>
-            <ion-icon name="navigate"></ion-icon>
-            Start
-          </button>
-        </ion-item>
       
       </ion-card>
-    </li>
-  </ul>
   
 </ion-content>

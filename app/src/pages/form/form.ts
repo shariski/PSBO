@@ -20,6 +20,7 @@ export class FormPage {
   luas: any;
   spesialisasi: string;
   role:string = "petani";
+  status:string = "menunggu pembayaran";
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -34,14 +35,19 @@ export class FormPage {
   cari(){
     let data = {
       lokasi:this.lokasi,
-      luas:this.luas,
       spesialisasi:this.spesialisasi,
       role:this.role
+    }
+    let dataOrder = {
+      lokasi:this.lokasi,
+      luas:this.luas,
+      spesialisasi:this.spesialisasi,
+      status:this.status
     }
     this.showLoader();
     this.searchService.search(data).then((result) => {
     this.loading.dismiss();
-    this.navCtrl.setRoot('HasilPencarianPage');
+    this.navCtrl.push('HasilPencarianPage', {data: result, dataOrder: dataOrder});
     console.log(result,data); 
   }, (err) => {
     this.loading.dismiss();

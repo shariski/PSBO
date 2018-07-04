@@ -30,15 +30,6 @@ export class SearchServiceProvider {
             resolve(res.json());  
             this.result = res.json();
             console.log("respon",this.result);
-            // this.message = this.data.message;
-            // this.token = this.data.token;
-            // this.storage.set("token",this.token);
-            // this.userId = this.data.userId;
-            // console.log("role",this.data.role);
-            // console.log("token",this.token);
-            // localStorage.setItem('token', this.data.token);
-            // this.tes = localStorage.getItem('token');
-            // console.log("isi storage",this.tes);
            }, (err) => {
             reject(err);
           });

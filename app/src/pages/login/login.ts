@@ -51,38 +51,20 @@ export class LoginPage {
       localStorage.setItem('token', this.data.token);
       console.log("ini user token",this.data.token)
       console.log("ini user role",this.data.role)
-      if (this.data.role == "petani"){
+      if (this.data.role == "petani") {
         this.navCtrl.setRoot(TabsPetaniPage);
       } else if (this.data.role == "lahan") {
         this.navCtrl.setRoot(TabsPage);
+      } else if (this.data.role == "admin") {
+        // this.navCtrl.setRoot('TabsAdminPage');   //tabs/home admin belum dibuat
       }
   }, (err) => {
     this.loading.dismiss();
     this.presentToast(err);
     console.log(err);
   });;
-//   this.authService.getUser(this.data.userId).then((result) => {
-//     this.loading.dismiss();
-//     this.dataUser = result;
-//     // localStorage.setItem('token', this.data.token);
-//     console.log("ini data user",this.dataUser)
-//     // console.log("ini user id",this.data.userId)
-//     this.navCtrl.setRoot(TabsPage);
-// }, (err) => {
-//   this.loading.dismiss();
-//   this.presentToast(err);
-//   console.log(err);
-// });;
   }
 
-
-  // openHomePage(){
-
-  //   console.log(this.uname.value, this.password.value);
-
-  //   this.navCtrl.push(TabsPage);
-
-  // }
   showLoader() {
     this.loading = this.loadCtrl.create({
       content: 'memuat..'
