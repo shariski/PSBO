@@ -6,55 +6,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-grid>
-    <ion-row>
-    <ion-col col-6>
-
-      <ion-card (click)="openFormPage()">
-      <img src="assets/imgs/padi.png" style='height: 25vw; width: 50vw; display: block; margin: auto;'/>
-        <ion-card-content>
-          <ion-card-title>
-          <font size="4" text-wrap>Cari Petani</font>
-          </ion-card-title>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-
-    <!-- <ion-col col-6>
-      <ion-card (click)="openFormPage()">
-      <img src="assets/imgs/tomat.jpg" style='height: 25vw; width: 50vw; display: block; margin: auto;'/>
-        <ion-card-content>
-          <ion-card-title>
-          <font size="4" text-wrap>Tomat</font>
-          </ion-card-title>
-        </ion-card-content>
-        </ion-card>
-    </ion-col>
-
-    <ion-col col-6>
-      <ion-card (click)="openFormPage()">
-      <img src="assets/imgs/cabe.jpg" style='height: 25vw; width: 50vw; display: block; margin: auto;'/>
-        <ion-card-content>
-          <ion-card-title>
-          <font size="4" text-wrap>Cabe</font>
-          </ion-card-title>
-        </ion-card-content>
-        </ion-card>
-    </ion-col>
-
-    <ion-col col-6>
-      <ion-card (click)="openFormPage()">
-      <img src="assets/imgs/jagung.jpg" style='height: 25vw; width: 50vw; display: block; margin: auto;'/>
-        <ion-card-content>
-          <ion-card-title>
-          <font size="4" text-wrap>Jagung</font>
-          </ion-card-title>
-        </ion-card-content>
-        </ion-card>
-    </ion-col> -->
-    </ion-row>
-    </ion-grid>
-  </ion-list>
+<ion-content class="background" padding>
+ 
+      <div class="title" text-center> Agrisearch</div>
+      <div class="sub" text-center> Temukan Petani untuk Lahan Anda</div>
+ 
+          
+<ion-row responsive-sm>
+			<ion-col class="button">
+			<button ion-button (click)="openFormPage()">Cari Petani</button>
+			</ion-col>
+		</ion-row>
 </ion-content>

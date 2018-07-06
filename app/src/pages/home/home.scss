@@ -1,3 +1,29 @@
 page-home {
+.background{
+    background: linear-gradient(#2387a4, #4aafbe, #73d1da);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.title {
+    position: relative;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+.sub {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+
+  .button {
+    position: relative;
+    text-align: center;
+  }
 }
