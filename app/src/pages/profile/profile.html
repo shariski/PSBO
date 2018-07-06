@@ -14,5 +14,21 @@
 
 
 <ion-content padding>
-  <button ion-button (click)=logout()>Logout</button>
+  <ion-item text-center>
+	    <img src="assets/imgs/contoh.png" style='height: 25vw; width: 25vw; display: block; margin: auto;'/>
+      <h5>(nama pemilik lahan), (email), (nomer hp)</h5>
+	</ion-item>
+  <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="secondary" (click)="editprofile()">
+          Edit Profil
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" (click)="logout()">
+          Logout
+        </button>
+      </ion-col>
+
+    </ion-row>
 </ion-content>

@@ -6,27 +6,26 @@
 
 <ion-content class="cards-bg">
 
-  <ion-card (click)="openFormPage()">
+  <ion-card>
 
     <ion-card-content>
       <ion-card-title>
         Pesanan
       </ion-card-title>
-      <p>
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-      </p>
+      <p>Nama: (nama petani)</p>
+      <p>Tanaman: (jenis tanaman)</p>
     </ion-card-content>
 
     <ion-row no-padding>
       <ion-col>
         <button ion-button clear small color="hijau" icon-start>
-          <ion-icon name='checkmark-circle'></ion-icon>
+          <ion-icon name='checkmark-circle' (click)="terima()"></ion-icon>
           Terima
         </button>
       </ion-col>
       <ion-col text-center>
         <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='ios-close-circle'></ion-icon>
+          <ion-icon name='ios-close-circle' (click)="tolak()"></ion-icon>
           Tolak
         </button>
       </ion-col>
@@ -34,29 +33,3 @@
     </ion-row>
 
   </ion-card>
-
-  <ion-card>
-
-    <ion-card-content>
-      <ion-card-title>
-        Erykah Badu
-      </ion-card-title>
-      <p>
-      American singer-songwriter, record producer, activist, and actress, Badu's style is a prime example of neo-soul.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Favorite
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='musical-notes'></ion-icon>
-          Listen
-        </button>
-      </ion-col>
-    </ion-row>

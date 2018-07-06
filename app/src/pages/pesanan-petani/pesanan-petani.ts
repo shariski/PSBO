@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the PesananPetaniPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-pesanan-petani',
@@ -20,6 +13,14 @@ export class PesananPetaniPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PesananPetaniPage');
+  }
+
+  terima(){
+    
+  }
+
+  tolak(){
+
   }
 
 }

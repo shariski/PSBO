@@ -7,12 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>profile-petani</ion-title>
+    <ion-title>profile petani</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-item text-center>
+	    <img src="assets/imgs/contoh.png" style='height: 25vw; width: 25vw; display: block; margin: auto;'/>
+      <h5>(nama petani), (email), (nomer hp)</h5>
+	</ion-item>
+  <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="secondary" (click)="editprofile()">
+          Edit Profil
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" (click)="logout()">
+          Logout
+        </button>
+      </ion-col>
 
+    </ion-row>
 </ion-content>

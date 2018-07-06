@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { App, NavController, NavParams } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { EditProfilePage } from '../edit-profile/edit-profile';
 
 @Component({
   selector: 'page-profile',
@@ -16,7 +10,7 @@ import { LoginPage } from '../login/login';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider) {
+  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -25,7 +19,11 @@ export class ProfilePage {
 
   logout(){
     this.authProvider.logout();
-    this.navCtrl.setRoot(LoginPage);
+    this.appCtrl.getRootNav().setRoot(LoginPage);
+  }
+
+  editprofile(){
+    this.navCtrl.setRoot(EditProfilePage);
   }
 
 }

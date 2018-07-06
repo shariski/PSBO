@@ -22,4 +22,8 @@ export class LaporanPetaniPage {
     console.log('ionViewDidLoad LaporanPetaniPage');
   }
 
+  kirim(){
+    
+  }
+
 }
