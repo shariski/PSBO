@@ -1,74 +1,36 @@
 <ion-content class="background">
 	<h2><img src="assets/imgs/contoh.png" style='height: 25vw; width: 25vw; display: block; margin: auto;'/></h2>
 
-<ion-card>
-			<ion-card-header>
-				Login Form
-			</ion-card-header>
+	<ion-card>
+		<ion-card-header>
+			Login Form
+		</ion-card-header>
 
-			<ion-card-content>
-				<form (submit)="login()" novalidate>
+		<ion-card-content>
+			<form (submit)="login()" novalidate>
 				<ion-list no-line>
 					<ion-item>
 						<ion-input type="email" placeholder="Email" [(ngModel)]="loginData.email" name="email"></ion-input>
 					</ion-item>
 
 					<ion-item>
-						 <ion-input [(ngModel)]="loginData.password" name="password" type="password" #pass="ngModel" placeholder="Password" required ></ion-input>
+						<ion-input [(ngModel)]="loginData.password" name="password" type="password" #pass="ngModel" placeholder="Password" required ></ion-input>
 					</ion-item>
 				</ion-list>
-				
+						
 				<ion-row responsive-sm>
-				<ion-col>
-				<button ion-button block type="submit">Login</button>
-<<<<<<< HEAD
-			</ion-col>
-		</ion-row>
-
-<!--		
-		<div text-center>
-			<button ion-button medium>
-				Click Here
-			</button>
-		</div>
-				-->
-
-		<ion-grid>
-			<ion-row>
-				<ion-col text-center><a><font color="black">Tidak punya akun? Buat Akun sebagai</font><a (click)="signUpPetani()"> Petani</a><font color="black"> atau</font><a (click)="signUpLahan()"> Pemilik Lahan.</a></a></ion-col>
-			</ion-row>
-			<!--<ion-row>
-				<ion-col text-center><a><font color="black"></font><a (click)="lupaPassword()">Lupa password.</a></a></ion-col>
-			</ion-row>-->
-		</ion-grid>
-
-	</form>
-
-</ion-content>
-=======
-				</ion-col>
+					<ion-col>
+						<button ion-button block type="submit">Login</button>
+					</ion-col>
 				</ion-row>
-				
-						<!--<<ion-row>
-						<ion-col text-center><a><font color="black"></font><a (click)="lupaPassword()">Lupa password.</a></a></ion-col>
-						</ion-row>-->
-					<!--<button ion-button clear full> 
-					<font color="black">Tidak punya akun? Buat Akun sebagai</font><a (click)="signUpPetani()"> Petani</a><font color="black"> atau</font><a (click)="signUpLahan()"> Pemilik Lahan.</a>
-					</button>-->
 
-			<ion-grid>
+				<ion-grid>
 					<ion-row>
-					<ion-col text-center><a><font color="black">Tidak punya akun? Buat Akun sebagai</font><a (click)="signUpPetani()"> Petani</a><font color="black"> atau</font><a (click)="signUpLahan()"> Pemilik Lahan.</a></a></ion-col>
+						<ion-col text-center><a><font color="black">Tidak punya akun? Buat Akun sebagai</font><a (click)="signUpPetani()"> Petani</a><font color="black"> atau</font><a (click)="signUpLahan()"> Pemilik Lahan.</a></a></ion-col>
 					</ion-row>
-					
-					<ion-row>
-					<ion-col text-center><a><font color="black"></font><a (click)="lupaPassword()">Lupa password.</a></a></ion-col>
-					</ion-row>
-			</ion-grid>
+				</ion-grid>
+
 			</form>
-		</ion-card-content>			
-</ion-card>
-
-<button class="bottom" ion-button block (click)="masukAdmin()">Login as admin</button>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
->>>>>>> 0d4a4f8b1ca26589c58345315f5e7a283d82b837
