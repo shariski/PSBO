@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-// import { Storage } from '@ionic/storage';
 let apiUrl = 'http://localhost:3000';
 
 
@@ -10,14 +9,19 @@ let apiUrl = 'http://localhost:3000';
 export class AuthServiceProvider {
   data:any;
   message:any;
-  token:any;
+  public token:any;
   tes:any;
   userId:any;
+  result:any;
   hasLoggedIn: boolean=false;
   
   constructor(
     public http: Http,
     private storage: Storage ) {}
+
+  getToken() {
+    return this.storage.get('token');
+  }
   
   login(credentials) {
     return new Promise((resolve, reject) => {
@@ -28,7 +32,6 @@ export class AuthServiceProvider {
             resolve(res.json()); 
             this.data = res.json();
             this.LoggedIn();
-            // this.userData();
             console.log("respon",this.data);
             this.message = this.data.message;
             this.token = this.data.token;
@@ -44,15 +47,6 @@ export class AuthServiceProvider {
     this.hasLoggedIn=true;
     return this.hasLoggedIn;
   }
-
-  // userData(){
-  //   if(this.LoggedIn){
-  //     return this.data;
-  //   }
-  //   else{
-  //     return "error";
-  //   }
-  // }
 
   getData()
   {
@@ -83,6 +77,22 @@ export class AuthServiceProvider {
         }, (err) => {
           reject(err);
         });
+    });
+  }
+
+  search(data) {
+    return new Promise((resolve, reject) => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization','Bearer '+ this.token);
+        this.http.post(apiUrl+'/users', JSON.stringify(data), {headers: headers})
+          .subscribe(res => {
+            resolve(res.json());  
+            this.result = res.json();
+            console.log("respon",this.result);
+           }, (err) => {
+            reject(err);
+          });
     });
   }
 

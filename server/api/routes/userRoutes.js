@@ -10,9 +10,6 @@ module.exports = function(app) {
     app.route('/users')
         .post(checkAuth, userCtrl.search_user);
 
-    app.route('/users')
-        .post(userCtrl.search_user);
-
     app.route('/users/signup/petani')
         .post(userCtrl.signup_petani);
 

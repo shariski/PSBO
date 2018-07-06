@@ -6,6 +6,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { RegisterPage } from '../register/register';
 import { RegisterLahanPage } from '../register-lahan/register-lahan';
 import { AdminPage } from '../admin/admin';
+import { TabsAdminPage } from '../tabs-admin/tabs-admin';
 /**
  * Generated class for the LoginPage page.
  *
@@ -56,7 +57,7 @@ export class LoginPage {
       } else if (this.data.role == "lahan") {
         this.navCtrl.setRoot(TabsPage);
       } else if (this.data.role == "admin") {
-        // this.navCtrl.setRoot('TabsAdminPage');   //tabs/home admin belum dibuat
+        this.navCtrl.setRoot(TabsAdminPage);   //tabs/home admin belum dibuat
       }
   }, (err) => {
     this.loading.dismiss();

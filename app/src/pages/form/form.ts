@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
-import { SearchServiceProvider } from '../../providers/search-service/search-service';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the FormPage page.
@@ -24,7 +24,7 @@ export class FormPage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    public searchService: SearchServiceProvider,
+    public authService: AuthServiceProvider,
     public loadCtrl: LoadingController,
     private toastCtrl: ToastController) {}
 
@@ -32,7 +32,7 @@ export class FormPage {
     console.log('ionViewDidLoad FormPage');
   }
 
-  cari(){
+  cekToken(){
     let data = {
       lokasi:this.lokasi,
       spesialisasi:this.spesialisasi,
@@ -44,8 +44,21 @@ export class FormPage {
       spesialisasi:this.spesialisasi,
       status:this.status
     }
+    if(!this.authService.token){
+      this.authService.getToken()
+      .then((access_token) => {
+          this.authService.token = access_token;
+          this.cari(data, dataOrder);
+      })
+    }else{
+        this.cari(data, dataOrder);
+    }
+  }
+
+  cari(data, dataOrder){
+    console.log("data dataorder", data, dataOrder); 
     this.showLoader();
-    this.searchService.search(data).then((result) => {
+    this.authService.search(data).then((result) => {
     this.loading.dismiss();
     this.navCtrl.push('HasilPencarianPage', {data: result, dataOrder: dataOrder});
     console.log(result,data); 

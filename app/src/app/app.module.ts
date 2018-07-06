@@ -17,6 +17,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ProfilePetaniPage } from '../pages/profile-petani/profile-petani';
 import { RegisterPage } from '../pages/register/register';
 import { SlidesPage } from '../pages/slides/slides';
+import { TabsAdminPage } from '../pages/tabs-admin/tabs-admin'
 import { TabsPage } from '../pages/tabs/tabs';
 import { TabsPetaniPage } from '../pages/tabs-petani/tabs-petani';
 import { FormPage } from '../pages/form/form';
@@ -29,7 +30,6 @@ import { EditProfilePetaniPage } from '../pages/edit-profile-petani/edit-profile
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-import { SearchServiceProvider } from '../providers/search-service/search-service';
 import { OrderProvider } from '../providers/order/order';
 import { PesananPageModule } from '../pages/pesanan/pesanan.module';
 
@@ -52,6 +52,7 @@ import { PesananPageModule } from '../pages/pesanan/pesanan.module';
     LaporanPetaniPage,
     PesananPetaniPage,
     ProfilePetaniPage,
+    TabsAdminPage,
     AdminPage,
     EditProfilePage,
     EditProfilePetaniPage
@@ -81,6 +82,7 @@ import { PesananPageModule } from '../pages/pesanan/pesanan.module';
     LaporanPetaniPage,
     PesananPetaniPage,
     ProfilePetaniPage,
+    TabsAdminPage,
     AdminPage,
     EditProfilePage,
     EditProfilePetaniPage
@@ -90,7 +92,6 @@ import { PesananPageModule } from '../pages/pesanan/pesanan.module';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
-    SearchServiceProvider,
     OrderProvider
   ]
 })
