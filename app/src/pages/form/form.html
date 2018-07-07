@@ -18,7 +18,7 @@
     <ion-list>
       <ion-item>
         <ion-label stacked>Jenis Tanaman</ion-label>
-        <ion-select [(ngModel)]="spesialisasi" name="Spesialisasi">
+        <ion-select [(ngModel)]="spesialisasi" name="Spesialisasi" interface="popover">
           <ion-option value="padi">Padi</ion-option>
           <ion-option value="tomat">Tomat</ion-option>
           <ion-option value="jagung">Jagung</ion-option>
@@ -28,7 +28,7 @@
 
       <ion-item>
         <ion-label stacked>Kota/Kabupaten</ion-label>
-        <ion-select [(ngModel)]="lokasi" name="Lokasi">
+        <ion-select [(ngModel)]="lokasi" name="Lokasi" interface="popover">
           <ion-option value="bandung">Bandung</ion-option>
           <ion-option value="bogor">Bogor</ion-option>
         </ion-select>
