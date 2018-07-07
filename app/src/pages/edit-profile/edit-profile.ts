@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 /**
  * Generated class for the LaporanPage page.
  *
@@ -18,9 +19,18 @@ export class EditProfilePage {
     nama: string;
     phone_number: number;
     password: string;
+    address: string;
+    ukuran_lahan: number;
     data : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider) {
+    this.data = navParams.get('data');
+    console.log(this.data);
+    this.email = this.data.email;
+    this.nama = this.data.name;
+    this.phone_number = this.data.phone_number;
+    this.address = this.data.address;
+    this.ukuran_lahan = this.data.ukuran_lahan;
   }
 
   ionViewDidLoad() {
@@ -28,15 +38,17 @@ export class EditProfilePage {
   }
 
   save(){
-    let regData = { 
-    email:this.email, 
-    password:this.password,
+    let editData = { 
+    email:this.email,
     name:this.nama,
+    address:this.address,
     phone_number:this.phone_number,
+    ukuran_lahan:this.ukuran_lahan
   }
-  console.log(this.email,this.password);
-  console.log(regData);
-  this.navCtrl.setRoot(ProfilePage);
+  this.authProvider.editProfileLahan(editData);
+  console.log(editData);
+  
+  this.navCtrl.pop();
   }
 
 }

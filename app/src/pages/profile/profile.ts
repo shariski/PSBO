@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, NavController, NavParams } from 'ionic-angular';
+import { App, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 import { EditProfilePage } from '../edit-profile/edit-profile';
@@ -10,8 +10,38 @@ import { EditProfilePage } from '../edit-profile/edit-profile';
 })
 export class ProfilePage {
 
-  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider) {
+  data:any;
+  loading:any;
+
+  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider, public loadCtrl: LoadingController,
+    private toastCtrl: ToastController) {
   }
+
+  ionViewWillEnter(){
+    this.authProvider.getData().then((result) => {
+      this.data = result[0];
+      console.log("data profil",this.data);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  // cekToken(){
+  //   if(!this.authProvider.token){
+  //     this.authProvider.getToken()
+  //     .then((access_token) => {
+  //         this.authProvider.token = access_token;
+  //         this.getUser();
+  //     })
+  //   }else{
+  //       this.getUser();
+  //   }
+  // }
+
+  // getUser(){
+  //   this.data = this.authProvider.getData();
+  //   console.log("data profil",this.data);
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
@@ -22,8 +52,12 @@ export class ProfilePage {
     this.appCtrl.getRootNav().setRoot(LoginPage);
   }
 
-  editprofile(){
-    this.navCtrl.setRoot(EditProfilePage);
+  editprofile(data){
+    this.navCtrl.push(EditProfilePage, {data: data});
+  }
+
+  gantiPassword(){
+    this.navCtrl.push('UbahPasswordPage');
   }
 
 }

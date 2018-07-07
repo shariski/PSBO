@@ -24,7 +24,7 @@ export class RegisterLahanPage {
     address: string;
     phone_number: number;
     password: string;
-    role: string = "lahan";
+    ukuran_lahan: number;
   data : any;
 
   constructor(public navCtrl: NavController, 
@@ -45,7 +45,7 @@ signup(){
     name:this.nama,
     address:this.address,
     phone_number:this.phone_number,
-    role:"lahan"
+    ukuran_lahan:this.ukuran_lahan
   };
 
   console.log(this.email,this.password);

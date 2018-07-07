@@ -162,7 +162,7 @@ exports.login_user = function(req, res, next) {
         .then(user => {
             if(user.length < 1) {
                 return res.status(401).json({
-                    message: 'Auth failed'
+                    message: 'Auth failed email tidak ada'
                 });
             }
             bcrypt.compare(req.body.password, user[0].password, (err, result) => {
@@ -200,6 +200,85 @@ exports.login_user = function(req, res, next) {
                 error: err
             });
         });
+};
+
+exports.edit_profile_lahan = function (req, res, next) {
+	var token = req.headers.authorization.split(" ")[1];
+	var decode = jwt.verify(token, "rahasia");
+    var userId = decode.userId;
+    User.update({ _id: userId }, { $set: {
+                name: req.body.name, 
+                email: req.body.email,
+                phone_number: req.body.phone_number, 
+                ukuran_lahan: req.body.ukuran_lahan, 
+                address: req.body.address
+            } 
+        })
+        .exec()
+        .then(result => {
+            res.status(200).json({
+                message: "Profile updated",
+                request: {
+                    type: "PATCH",
+                    url: "http://localhost:3000/users" + userId
+                }
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+    })
+};
+
+exports.edit_password = function (req, res, next) {
+	var token = req.headers.authorization.split(" ")[1];
+	var decode = jwt.verify(token, "rahasia");
+    var userId = decode.userId;
+    User.find({_id: userId})
+        .exec()
+        .then(user => {
+            bcrypt.compare(req.body.password_lama, user[0].password, function(err, result) {
+            if (result) {
+                bcrypt.hash(req.body.password_baru, 10, (err, hash) => {
+                    if(err) {
+                        return res.status(500).json({
+                            error: err    
+                        });
+                    } else {
+                        User.update({ _id: userId }, { $set: {
+                            password: hash
+                            } 
+                        })
+                        .exec()
+                        .then(result => {
+                            return res.status(200).json({
+                                message: "Password updated"
+                            });
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            res.status(500).json({
+                                error: err
+                            });
+                        });
+                    }
+                });
+            }
+            else {
+                return res.status(409).json({
+                    message: 'Password lama tidak cocok'
+                });
+            } 
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: err
+        });
+    });
 };
 
 exports.get_user = function(req, res) {

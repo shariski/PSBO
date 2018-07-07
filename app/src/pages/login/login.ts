@@ -57,7 +57,7 @@ export class LoginPage {
       } else if (this.data.role == "lahan") {
         this.navCtrl.setRoot(TabsPage);
       } else if (this.data.role == "admin") {
-        this.navCtrl.setRoot(TabsAdminPage);   //tabs/home admin belum dibuat
+        this.navCtrl.setRoot(TabsAdminPage);
       }
   }, (err) => {
     this.loading.dismiss();

@@ -55,7 +55,6 @@ export class AuthServiceProvider {
       console.log('Token', this.token);
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization','Bearer '+ this.token);
-      console.log("header auth", headers);
       this.http.get(apiUrl+'/users', {headers: headers})
         .subscribe(res => {
           resolve(res.json());
@@ -70,7 +69,7 @@ export class AuthServiceProvider {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
    
-      this.http.post(apiUrl+'/users/signup', JSON.stringify(data), {headers: headers})
+      this.http.post(apiUrl+'/users/signup/pemilik_lahan', JSON.stringify(data), {headers: headers})
         .subscribe(res => {
           resolve(res);
           
@@ -93,6 +92,34 @@ export class AuthServiceProvider {
            }, (err) => {
             reject(err);
           });
+    });
+  }
+
+  editProfileLahan(data) {
+    return new Promise((resolve, reject) =>{
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization','Bearer '+ this.token);
+      this.http.patch(apiUrl+'/users/edit_profile/lahan', JSON.stringify(data), {headers: headers})
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  editPassword(data) {
+    return new Promise((resolve, reject) =>{
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization','Bearer '+ this.token);
+      this.http.patch(apiUrl+'/users/edit_profile/password', JSON.stringify(data), {headers: headers})
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
   }
 

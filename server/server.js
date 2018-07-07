@@ -6,7 +6,8 @@ var express = require('express'),
     Petani = require('./api/models/petaniModel'),
     PemilikLahan = require('./api/models/pemilikLahanModel'),
     Admin = require('./api/models/adminModel'),
-    Order = require('./api/models/orderModel')
+    Order = require('./api/models/orderModel'),
+    cors = require('cors');
     bodyParser = require('body-parser');
 
 
@@ -15,6 +16,8 @@ mongoose.connect('mongodb://localhost/agri');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 var userRoutes = require('./api/routes/userRoutes');
 var orderRoutes = require('./api/routes/orderRoutes');

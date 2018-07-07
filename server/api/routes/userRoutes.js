@@ -19,6 +19,12 @@ module.exports = function(app) {
     app.route('/users/signup/admin')
         .post(userCtrl.signup_admin);
 
-    app.route('/users/login') 
+    app.route('/users/login')
         .post(userCtrl.login_user);
+
+    app.route('/users/edit_profile/lahan') 
+        .patch(checkAuth, userCtrl.edit_profile_lahan);
+
+    app.route('/users/edit_profile/password')
+        .patch(checkAuth, userCtrl.edit_password);
 };

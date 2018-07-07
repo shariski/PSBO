@@ -26,7 +26,6 @@ export class HasilPencarianPage {
     public navParams: NavParams,
     public authService: AuthServiceProvider
   ) {
-    this.dataUser = this.authService.getData();
     this.datas = navParams.get('data');
     console.log("data petani", this.datas);
     this.dataOrder = navParams.get('dataOrder');
