@@ -20,6 +20,19 @@ page-login {
         border-bottom: #2387a6 solid 1px;
     }
 
+    .warna_login {
+        width: 100%;
+        margin: 0 auto;
+        padding: inherit;
+      }
+    .warna_button{
+      width: 100%;
+      margin: 0 auto;
+      padding: inherit;
+      background: linear-gradient(#2387a4, #4aafbe, #73d1da);
+    }
+
+
     // a, p,
     // .ion-card-header.card-header{
     //     color: #fff;
@@ -27,7 +40,7 @@ page-login {
 
     // .list > .item-block:first-child{
     //     border: medium none;
-    // } 
+    // }
     // .item{
     //     margin-bottom: 10px;
     //     background: rgba(255, 255, 255, 0.5);
@@ -60,4 +73,3 @@ page-login {
     //         bottom: 0;
     //     }
     }
-
