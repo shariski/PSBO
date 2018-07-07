@@ -25,7 +25,6 @@ export class RegisterPage {
     phone_number: number;
     password: string;
     spesialisasi: string;
-    role: string;
     harga: any;
   data : any;
 
@@ -48,14 +47,13 @@ signup(){
     address:this.address,
     phone_number:this.phone_number,
     spesialisasi:this.spesialisasi,
-    harga:this.harga,
-    role:"petani"
+    harga:this.harga
   };
 
   console.log(this.email,this.password);
   console.log(regData);
   this.showLoader();
-  this.authService.register(regData).then((result) => {
+  this.authService.registerPetani(regData).then((result) => {
     this.loading.dismiss();
     this.navCtrl.setRoot(LoginPage);
     console.log(result,regData);

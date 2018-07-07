@@ -51,7 +51,7 @@ signup(){
   console.log(this.email,this.password);
   console.log(regData);
   this.showLoader();
-  this.authService.register(regData).then((result) => {
+  this.authService.registerLahan(regData).then((result) => {
     this.loading.dismiss();
     this.navCtrl.setRoot(LoginPage);
     console.log(result,regData);

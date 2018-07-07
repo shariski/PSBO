@@ -26,9 +26,28 @@
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input [(ngModel)]="password" name="password" #pass="ngModel" type="password" required></ion-input>
+        <ion-label floating>Alamat</ion-label>
+        <ion-select [(ngModel)]="address" interface="popover" name="Address" required>
+          <ion-option value="bandung">Bandung</ion-option>
+          <ion-option value="bogor">Bogor</ion-option>
+        </ion-select>
       </ion-item>
+
+      <ion-item>
+        <ion-label floating>Jenis Tanaman</ion-label>
+        <ion-select [(ngModel)]="spesialisasi" interface="popover" name="Spesialisasi" required>
+          <ion-option value="padi">Padi</ion-option>
+          <ion-option value="tomat">Tomat</ion-option>
+          <ion-option value="cabe">Cabe</ion-option>
+          <ion-option value="jagung">Jagung</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Harga</ion-label>
+        <ion-input [(ngModel)]="harga" name="Harga" type="number"></ion-input>
+      </ion-item>
+
     </ion-list>
   </form>
 <div>

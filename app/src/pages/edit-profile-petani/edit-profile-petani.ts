@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilePetaniPage } from '../profile-petani/profile-petani';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the LaporanPage page.
@@ -17,10 +18,20 @@ export class EditProfilePetaniPage {
     email: string;
     nama: string;
     phone_number: number;
-    password: string;
+    address: string;
+    spesialisasi: string;
+    harga: number;
     data : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider) {
+    this.data = navParams.get('data');
+    console.log(this.data);
+    this.email = this.data.email;
+    this.nama = this.data.name;
+    this.phone_number = this.data.phone_number;
+    this.address = this.data.address;
+    this.spesialisasi = this.data.spesialisasi;
+    this.harga = this.data.harga;
   }
 
   ionViewDidLoad() {
@@ -28,15 +39,17 @@ export class EditProfilePetaniPage {
   }
 
   save(){
-      let regData = { 
-    email:this.email, 
-    password:this.password,
+    let editData = { 
+    email:this.email,
     name:this.nama,
     phone_number:this.phone_number,
+    address:this.address,
+    spesialisasi:this.spesialisasi,
+    harga:this.harga
   }
-  console.log(this.email,this.password);
-  console.log(regData);
-  this.navCtrl.setRoot(ProfilePetaniPage);
+  this.authProvider.editProfilePetani(editData);
+  console.log(editData);
+  this.navCtrl.pop();
   }
 
 }

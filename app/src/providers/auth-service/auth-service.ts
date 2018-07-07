@@ -64,11 +64,10 @@ export class AuthServiceProvider {
     });
   }
 
-  register(data) {
+  registerLahan(data) {
   return new Promise((resolve, reject) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-   
       this.http.post(apiUrl+'/users/signup/pemilik_lahan', JSON.stringify(data), {headers: headers})
         .subscribe(res => {
           resolve(res);
@@ -78,6 +77,34 @@ export class AuthServiceProvider {
         });
     });
   }
+
+  registerPetani(data) {
+    return new Promise((resolve, reject) => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post(apiUrl+'/users/signup/petani', JSON.stringify(data), {headers: headers})
+          .subscribe(res => {
+            resolve(res);
+            
+          }, (err) => {
+            reject(err);
+          });
+      });
+    }
+
+  registerAdmin(data) {
+    return new Promise((resolve, reject) => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post(apiUrl+'/users/signup/admin', JSON.stringify(data), {headers: headers})
+          .subscribe(res => {
+            resolve(res);
+            
+          }, (err) => {
+            reject(err);
+          });
+      });
+    }
 
   search(data) {
     return new Promise((resolve, reject) => {
@@ -101,6 +128,20 @@ export class AuthServiceProvider {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization','Bearer '+ this.token);
       this.http.patch(apiUrl+'/users/edit_profile/lahan', JSON.stringify(data), {headers: headers})
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  editProfilePetani(data) {
+    return new Promise((resolve, reject) =>{
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization','Bearer '+ this.token);
+      this.http.patch(apiUrl+'/users/edit_profile/petani', JSON.stringify(data), {headers: headers})
         .subscribe(res => {
           resolve(res);
         }, (err) => {

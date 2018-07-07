@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, NavController, NavParams } from 'ionic-angular';
+import { App, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 import { EditProfilePetaniPage } from '../edit-profile-petani/edit-profile-petani';
@@ -10,7 +10,20 @@ import { EditProfilePetaniPage } from '../edit-profile-petani/edit-profile-petan
 })
 export class ProfilePetaniPage {
 
-  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider) {
+  data:any;
+  loading:any;
+
+  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider, public loadCtrl: LoadingController,
+    private toastCtrl: ToastController) {
+  }
+
+  ionViewWillEnter(){
+    this.authProvider.getData().then((result) => {
+      this.data = result[0];
+      console.log("data profil",this.data);
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   ionViewDidLoad() {
@@ -22,9 +35,12 @@ export class ProfilePetaniPage {
     this.appCtrl.getRootNav().setRoot(LoginPage);
   }
 
-  editprofile(){
-    this.navCtrl.setRoot(EditProfilePetaniPage)
-    
+  editprofile(data){
+    this.navCtrl.push(EditProfilePetaniPage, {data: data})
+  }
+
+  gantiPassword(){
+    this.navCtrl.push('UbahPasswordPage')
   }
 
 }

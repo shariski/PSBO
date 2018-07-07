@@ -26,23 +26,6 @@ export class ProfilePage {
     });
   }
 
-  // cekToken(){
-  //   if(!this.authProvider.token){
-  //     this.authProvider.getToken()
-  //     .then((access_token) => {
-  //         this.authProvider.token = access_token;
-  //         this.getUser();
-  //     })
-  //   }else{
-  //       this.getUser();
-  //   }
-  // }
-
-  // getUser(){
-  //   this.data = this.authProvider.getData();
-  //   console.log("data profil",this.data);
-  // }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }

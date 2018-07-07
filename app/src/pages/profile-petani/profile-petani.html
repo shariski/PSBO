@@ -16,12 +16,25 @@
 <ion-content padding>
   <ion-item text-center>
 	    <img src="assets/imgs/contoh.png" style='height: 25vw; width: 25vw; display: block; margin: auto;'/>
-      <h5>(nama petani), (email), (nomer hp)</h5>
+      <div *ngIf="data">
+        <h5>Nama: {{data.name}}</h5>
+        <h5>Email: {{data.email}}</h5>
+        <h5>Alamat: {{data.address}}</h5>
+        <h5>Telepon: {{data.phone_number}}</h5>
+        <h5>Jenis Tanaman: {{data.spesialisasi}}</h5>
+        <h5>Harga: {{data.harga}}</h5>
+      </div>
+
 	</ion-item>
   <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="secondary" (click)="editprofile()">
+        <button ion-button clear small color="secondary" (click)="editprofile(data)">
           Edit Profil
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="secondary" (click)="gantiPassword()">
+          Ubah Password
         </button>
       </ion-col>
       <ion-col text-center>

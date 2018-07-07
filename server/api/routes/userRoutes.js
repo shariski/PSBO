@@ -25,6 +25,9 @@ module.exports = function(app) {
     app.route('/users/edit_profile/lahan') 
         .patch(checkAuth, userCtrl.edit_profile_lahan);
 
+    app.route('/users/edit_profile/petani') 
+        .patch(checkAuth, userCtrl.edit_profile_petani);
+
     app.route('/users/edit_profile/password')
         .patch(checkAuth, userCtrl.edit_password);
 };

@@ -232,6 +232,36 @@ exports.edit_profile_lahan = function (req, res, next) {
     })
 };
 
+exports.edit_profile_petani = function (req, res, next) {
+	var token = req.headers.authorization.split(" ")[1];
+	var decode = jwt.verify(token, "rahasia");
+    var userId = decode.userId;
+    User.update({ _id: userId }, { $set: {
+                name: req.body.name, 
+                email: req.body.email,
+                phone_number: req.body.phone_number, 
+                spesialisasi: req.body.spesialisasi, 
+                address: req.body.address,
+                harga: req.body.harga
+            } 
+        })
+        .exec()
+        .then(result => {
+            res.status(200).json({
+                message: "Profile updated",
+                request: {
+                    type: "PATCH",
+                }
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+    })
+};
+
 exports.edit_password = function (req, res, next) {
 	var token = req.headers.authorization.split(" ")[1];
 	var decode = jwt.verify(token, "rahasia");
