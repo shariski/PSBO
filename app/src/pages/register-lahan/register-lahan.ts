@@ -45,7 +45,7 @@ signup(){
     name:this.nama,
     address:this.address,
     phone_number:this.phone_number,
-    ukuran_lahan:this.ukuran_lahan
+    ukuran_lahan:this.ukuran_lahan,
   };
 
   console.log(this.email,this.password);

@@ -34,6 +34,7 @@ exports.signup_petani = function (req, res, next) {
                             name: req.body.name,
                             address: req.body.address,
                             phone_number: req.body.phone_number,
+                            no_rekening: req.body.no_rekening,
                             spesialisasi: req.body.spesialisasi,
                             harga: req.body.harga
                         });
@@ -206,7 +207,7 @@ exports.edit_profile_lahan = function (req, res, next) {
 	var token = req.headers.authorization.split(" ")[1];
 	var decode = jwt.verify(token, "rahasia");
     var userId = decode.userId;
-    User.update({ _id: userId }, { $set: {
+    PemilikLahan.update({ _id: userId }, { $set: {
                 name: req.body.name, 
                 email: req.body.email,
                 phone_number: req.body.phone_number, 
@@ -216,6 +217,7 @@ exports.edit_profile_lahan = function (req, res, next) {
         })
         .exec()
         .then(result => {
+            console.log("ukuran lahan", req.body.ukuran_lahan)
             res.status(200).json({
                 message: "Profile updated",
                 request: {
@@ -236,11 +238,12 @@ exports.edit_profile_petani = function (req, res, next) {
 	var token = req.headers.authorization.split(" ")[1];
 	var decode = jwt.verify(token, "rahasia");
     var userId = decode.userId;
-    User.update({ _id: userId }, { $set: {
+    Petani.update({ _id: userId }, { $set: {
                 name: req.body.name, 
                 email: req.body.email,
                 phone_number: req.body.phone_number, 
                 spesialisasi: req.body.spesialisasi, 
+                no_rekening: req.body.no_rekening,
                 address: req.body.address,
                 harga: req.body.harga
             } 

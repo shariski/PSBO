@@ -26,6 +26,11 @@
       </ion-item>
 
       <ion-item>
+        <ion-label floating>Nomor Rekening</ion-label>
+        <ion-input [(ngModel)]="no_rekening" name="No_rekening" [ngModelOptions]="{standalone: true}" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
         <ion-label floating>Alamat</ion-label>
         <ion-select [(ngModel)]="address" interface="popover" name="Address" required>
           <ion-option value="bandung">Bandung</ion-option>

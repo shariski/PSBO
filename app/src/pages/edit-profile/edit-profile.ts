@@ -46,7 +46,7 @@ export class EditProfilePage {
     ukuran_lahan:this.ukuran_lahan
   }
   this.authProvider.editProfileLahan(editData);
-  console.log(editData);
+  console.log("data edit",editData);
   
   this.navCtrl.pop();
   }
