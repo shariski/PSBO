@@ -9,7 +9,7 @@ import { EditProfilePage } from '../edit-profile/edit-profile';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-
+  
   data:any;
   loading:any;
 

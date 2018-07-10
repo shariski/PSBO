@@ -6,20 +6,21 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>pesanan</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Pesanan</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  
 <!-- <ion-list>
   <ion-item> -->
     <!-- <li *ngFor="let order of orders"> -->
       <ion-card *ngFor="let order of orders" (click)=openViewPage(order)>
         <ion-card-header>
-          {{order.userIdPetani.spesialisasi}}
+          <!--{{order.userIdPetani.spesialisasi}}-->
         </ion-card-header>
         <ion-card-content>
           <p>Nama Petani: {{order.userIdPetani.name}}</p>

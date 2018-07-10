@@ -6,27 +6,60 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Profile</ion-title>
   </ion-navbar>
-
 </ion-header>
-
+ 
 
 <ion-content padding>
   <ion-item text-center>
 	    <img src="assets/imgs/contoh.png" style='height: 25vw; width: 25vw; display: block; margin: auto;'/>
-      <div *ngIf="data">
-        <h5>Nama: {{data.name}}</h5>
+      <ion-grid>
+  <ion-row>
+    <ion-col>
+      <button ion-button small outline color="primary" (click)="editprofile(data)">
+          Edit Profil</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button small outline color="primary" (click)="gantiPassword()">
+          Ubah Password</button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+      <ion-list>
+<div *ngIf="data">
+  <ion-item>
+    <ion-icon name="md-person" item-start></ion-icon>
+      {{data.name}}
+  </ion-item>
+  <ion-item>
+    <ion-icon name="md-at" item-start></ion-icon>
+      {{data.email}}
+  </ion-item>
+  <ion-item>
+    <ion-icon name="md-pin" item-start></ion-icon>
+      {{data.address}}
+  </ion-item>
+  <ion-item>
+    <ion-icon name="md-call" item-start></ion-icon>
+      {{data.phone_number}}
+  </ion-item>
+  <ion-item>
+    <ion-icon name="md-map" item-start></ion-icon>
+      {{data.ukuran_lahan}}
+  </ion-item>
+
+        <!--<h5>Nama: {{data.name}}</h5>
         <h5>Email: {{data.email}}</h5>
         <h5>Alamat: {{data.address}}</h5>
         <h5>Telepon: {{data.phone_number}}</h5>
-        <h5>Ukuran Lahan: {{data.ukuran_lahan}}</h5>
+        <h5>Ukuran Lahan: {{data.ukuran_lahan}}</h5>-->
       </div>
-
+</ion-list>
 	</ion-item>
   <ion-row no-padding>
-      <ion-col>
+      <!--<ion-col>
         <button ion-button color="secondary" (click)="editprofile(data)">
           Edit Profil
         </button>
@@ -35,9 +68,9 @@
         <button ion-button color="secondary" (click)="gantiPassword()">
           Ubah Password
         </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button color="danger" (click)="logout()">
+      </ion-col>-->
+      <ion-col text-center class="bottom">
+        <button ion-button color="primary" (click)="logout()">
           Logout
         </button>
       </ion-col>

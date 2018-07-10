@@ -1,3 +1,11 @@
 page-profile {
-
+    .background{
+        background: linear-gradient(#2387a4, #4aafbe, #73d1da);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+.bottom{
+            position: absolute;
+            bottom: 0;
+        }
 }
