@@ -24,6 +24,7 @@ export class RegisterPage {
     address: string;
     phone_number: number;
     password: string;
+    no_rekening: number;
     spesialisasi: string;
     harga: any;
   data : any;
@@ -46,6 +47,7 @@ signup(){
     name:this.nama,
     address:this.address,
     phone_number:this.phone_number,
+    no_rekening:this.no_rekening,
     spesialisasi:this.spesialisasi,
     harga:this.harga
   };

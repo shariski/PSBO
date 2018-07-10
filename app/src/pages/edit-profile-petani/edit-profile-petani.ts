@@ -21,6 +21,7 @@ export class EditProfilePetaniPage {
     address: string;
     spesialisasi: string;
     harga: number;
+    no_rekening: number;
     data : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthServiceProvider) {
@@ -30,9 +31,10 @@ export class EditProfilePetaniPage {
     this.nama = this.data.name;
     this.phone_number = this.data.phone_number;
     this.address = this.data.address;
+    this.no_rekening = this.data.no_rekening;
     this.spesialisasi = this.data.spesialisasi;
     this.harga = this.data.harga;
-  }
+  } 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePetaniPage');
@@ -43,6 +45,7 @@ export class EditProfilePetaniPage {
     email:this.email,
     name:this.nama,
     phone_number:this.phone_number,
+    no_rekening:this.no_rekening,
     address:this.address,
     spesialisasi:this.spesialisasi,
     harga:this.harga

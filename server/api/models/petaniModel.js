@@ -4,6 +4,9 @@ var Schema = mongoose.Schema;
 var User = require('./userModel');
 
 var Petani = new Schema({
+        no_rekening: {
+            type: Number
+        },
         spesialisasi: {
             type: String
         },

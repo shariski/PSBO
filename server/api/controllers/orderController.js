@@ -17,6 +17,7 @@ exports.get_user_orders = function (req, res, next) {
       Order.find({userId : userId})
           .select('userIdPetani lokasi luas tanggal_dibuat tanggal harga status')
           .populate('userIdPetani')
+          .populate('userId')
           .sort({tanggal_dibuat: -1})
           .exec()
           .then(docs => {

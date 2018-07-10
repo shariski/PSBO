@@ -20,7 +20,8 @@ export class FormPage {
   luas: any;
   spesialisasi: string;
   role:string = "petani";
-  status:string = "menunggu pembayaran";
+  status:string = "menunggu konfirmasi petani";
+  userData:any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -30,6 +31,16 @@ export class FormPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FormPage');
+  }
+
+  ionViewWillEnter(){
+    this.authService.getData().then((result) => {
+      this.userData = result[0];
+      this.luas = this.userData.ukuran_lahan;
+      console.log("ukuran lahan", this.luas);
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   cekToken(){
