@@ -16,28 +16,60 @@
 <ion-content padding>
   <ion-item text-center>
 	    <img src="assets/imgs/contoh.png" style='height: 25vw; width: 25vw; display: block; margin: auto;'/>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button clear small color="secondary" (click)="editprofile(data)">
+              Edit Profil
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small color="secondary" (click)="gantiPassword()">
+              Ubah Password
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <div *ngIf="data">
-        <h5>Nama: {{data.name}}</h5>
+        <ion-item>
+          <ion-icon name="md-person" item-start></ion-icon>
+            {{data.name}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="md-at" item-start></ion-icon>
+            {{data.email}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="md-pin" item-start></ion-icon>
+            {{data.address}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="md-call" item-start></ion-icon>
+            {{data.phone_number}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="md-card" item-start></ion-icon>
+            {{data.no_rekening}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="md-rose" item-start></ion-icon>
+            {{data.spesialisasi}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="logo-usd" item-start></ion-icon>
+            {{data.harga}}
+        </ion-item>
+        <!-- <h5>Nama: {{data.name}}</h5>
         <h5>Email: {{data.email}}</h5>
         <h5>Alamat: {{data.address}}</h5>
         <h5>Telepon: {{data.phone_number}}</h5>
         <h5>Nomor Rekening: {{data.no_rekening}}</h5>
         <h5>Jenis Tanaman: {{data.spesialisasi}}</h5>
-        <h5>Harga: {{data.harga}}</h5>
+        <h5>Harga: {{data.harga}}</h5> -->
       </div>
 
 	</ion-item>
   <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="secondary" (click)="editprofile(data)">
-          Edit Profil
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button color="secondary" (click)="gantiPassword()">
-          Ubah Password
-        </button>
-      </ion-col>
       <ion-col text-center>
         <button ion-button clear small color="danger" (click)="logout()">
           Logout
